@@ -1,0 +1,94 @@
+/*
+Name  	   : Muhammad Afiq Bin Zulkiffle
+Class 	   : PI009 E07
+Student Id : 2018639562
+
+~ Individual Assignment 1 ~
+
+- C program by using if.. else statements, repetition and user define functions. 
+
+- This program should prompt user to enter an integer (negative or positive integer) 
+  until the number entered is 0 that will terminate the repetition.
+  
+-For all the nonzero numbers entered, the programs should :
+
+1)	counts how many odd numbers
+2)	counts how many even numbers
+3)	determine the biggest number
+4)	determine the smallest number
+
+
+*/
+
+
+
+#include<stdio.h>											//	Include lbirary standard input output
+void result();												//	Decalration of function
+int getnumber(),high_low();
+void even_odd();						
+int nhigh,nlow,nodd,neven;									//	Declaration of variables
+int i=0,num=0;												//	Decalration and initialization of variable
+int main()
+{
+	printf("		Input an integer, one at a time, and press ENTER. ");
+	printf("\n(** Enter the number as many as you want and enter 0 to terminate the process**)\n\n");
+
+	do											// Do a loop
+		{
+			i++;								// i=attempt enter number and increase by 1 when input nummber
+
+			if(getnumber(num)!=0)				// Proceed to if statement when nonzero enter
+				{
+					even_odd();					// Proceed to even_odd() function
+					high_low();					// Proceed to high_low() function
+				}
+			
+		}
+	while (num!=0);								// Continue the loop when nonzero integer and Stop the loop when integer is zero
+	
+	result();
+	
+}
+
+int getnumber()
+	{
+		printf("%d .Enter your number =",i);				//	Instruction to enter integer number		
+		scanf("%d",&num);									// Scan for input
+		return num;								
+	}	
+
+void even_odd()												//	Determine number of even and odd number
+	{
+		if(num%2==0)										// Even Number Formula
+			neven+=1;										// Number of even number increase by 1 for each loop
+		else if((num%2==1)||(num%2==-1))					// Odd Number Formula when postive and negative integer enter
+			nodd+=1;										// Number of odd number increase by 1 for each loop
+											
+	}
+
+int high_low()												// Determine the highest and lowest integer
+	{
+		if(i==1)											// First attempt to insert integer
+			{
+				nhigh=nlow=num;								// Highest will be equal to lowest
+			}
+		else if(i>1)										// Second attempt until the end..
+			{
+											
+				if (num>nhigh)								// Integer entered will be the highest
+					nhigh=num;
+				if (num<nlow)								// Integer entered will be the lowest
+					nlow=num;
+			}
+		return;
+	}
+	
+void result()
+{
+	printf("\nSummary");								// Display output
+	printf("\n--------------------------------");
+	printf("\nNumber of Odd Number  =%d",nodd);
+	printf("\nNumber of Even Number =%d",neven);
+	printf("\nHighest Number        =%d",nhigh);
+	printf("\nLowest Number         =%d",nlow);
+}
