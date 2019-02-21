@@ -1,0 +1,97 @@
+#include<stdio.h>
+void menu();
+float ftoc(float);
+float mtoi(float);
+float miltokmil(float);
+float rmtoeuro(float);
+int main()
+{
+	char option=' ';
+	do
+	{
+		
+		menu();
+		scanf(" %c",&option);
+		system("cls");
+		if((option=='A')||(option=='a'))							// Proceed to Fahrenheit to Celcius Converter 
+			{
+				float fahr,celc;											// Declaration of variables
+					
+				printf("***** Fahrenheit to Celsius  *****");
+				printf("\n\nInsert Farenheit = .......");					// Input Fahrenheit
+				scanf("%f",&fahr);
+				printf("%.2f (Farenheit)= %.2f (Celcius)\n",fahr,ftoc(fahr));
+		
+		
+			}
+			
+		else if((option=='B')||(option=='b'))						// Proceed to Meter to Inch Converter 
+				{
+					float meter,inch;											// Declaration of variables
+					
+					printf("***** Meter to Inches  *****");
+					printf("\n\nInsert Meter = .......");						// Input Meter
+					scanf("%f",&meter);
+					printf("%.2f m = %.2f inch",meter,mtoi(meter));
+				}
+				
+		else if((option=='C')||(option=='c'))						// Proceed to Miles to Kilometer Converter
+				{
+					float miles,km;												// Declaration of Variables
+					printf("***** Miles to Kilometers   *****");
+					printf("\n\nInsert Miles = .......");						// Input Miles
+					scanf("%f",&miles);
+					printf("%.2f Miles= %.2f km",miles,miltokmil(miles));		
+				}
+				
+		else if((option=='D')||(option=='d'))						// Proceed to Ringgit Malaysia to Euro Converter
+				{
+					float rm,euro;												// Declaration of variables
+			
+					printf("***** Ringgit Malaysia to Euro  *****");
+					printf("\n\nInsert Ringgit Malaysia = .......");			// Input Ringgit Malaysia
+					scanf("%f",&rm);	
+					printf("RM %.2f = %.2f Euro",rm,rmtoeuro(rm));
+				}
+			
+			
+	
+	}while((option!='E')&&(option!='e'));
+
+}
+
+void menu()
+{
+	printf("***** Universal Unit Converter  *****");	
+	printf("\n\nA: Fahrenheit to Celsius ");
+	printf("\nB: Meter to Inches ");
+	printf("\nC: Miles to Kilometers ");
+	printf("\nD: Ringgit Malaysia to Euro ");
+	printf("\n\nE: EXIT ");
+	printf("\n\nPilihan anda --> ");
+}
+
+float ftoc(float a)
+{
+	float celc;
+	celc=5*(a-32)/9;
+	return celc;	
+}
+float mtoi(float a)
+{
+	float inch;
+	inch=a*39.37;	
+	return inch;
+}
+float miltokmil(float a)
+{
+	float km;
+	km=a*1.609;	
+	return km;
+}
+float rmtoeuro(float a)
+{
+	float euro;
+	euro=a*21/100;	
+	return euro;
+}
