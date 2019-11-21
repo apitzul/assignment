@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int day=0,hot=0,cold=0;
+	double suhu[30]={0.0};
+	double sum=0.0,average=0.0;
+	
+	
+	
+	cout<<"Please Input The Temperature (Celcius) : \n";
+	for(day=0;day<30;day++)
+	{
+		cout<<"Day "<<day+1<<":";
+		cin>>suhu[day];
+		
+		sum+=suhu[day];
+		
+		if(suhu[hot]<suhu[day])
+		hot=day;
+		
+		if(suhu[cold]>suhu[day])
+		cold=day;
+		
+	}
+	
+	average=sum/30;
+	cout<<"Average :"<<average<<endl;
+	cout<<"Hottest Temperature :"<<suhu[hot]<<endl;
+	cout<<"Coldest Temperature :"<<suhu[cold]<<endl;
+	cout<<"Differences is :"<<suhu[hot]-suhu[cold];
+	
+	return 0;
+}
